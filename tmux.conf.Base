@@ -1,0 +1,26 @@
+# General
+set -g base-index 1
+set-option -g status-utf8 on
+
+
+# Mouse
+set-option -g mouse-select-pane on
+set-option -g mouse-select-window on
+set-window-option -g mode-mouse on
+
+
+# Keys
+set-window-option -g mode-keys vi
+
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+bind-key v split-window -h
+bind-key s split-window
+bind-key m resize-pane -Z
+
+bind-key -r h select-pane -L
+bind-key -r j select-pane -D
+bind-key -r k select-pane -U
+bind-key -r l select-pane -R
+
