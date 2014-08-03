@@ -1,0 +1,4 @@
+# Theme - OS X Darkspectrum
+set -g status-left "#[bg=colour240]#[fg=colour189] #S ✚  #[bg=colour238]#[fg=colour146]  ✉ #(~/bin/mail_count)  "
+set -g status-right "#[bg=colour240]#[fg=colour189]  %a, %b %d | %H:%M "
+

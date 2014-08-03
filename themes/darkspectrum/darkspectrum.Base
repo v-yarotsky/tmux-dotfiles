@@ -1,0 +1,32 @@
+# Theme - Darkspectrum
+set -g status-position top
+
+set-option -g status-bg colour235
+set-option -g status-fg colour179
+set-option -g status-attr default
+
+set-window-option -g window-status-fg colour60
+set-window-option -g window-status-bg default
+
+set-window-option -g window-status-current-fg colour111
+set-window-option -g window-status-current-bg default
+set-window-option -g window-status-current-attr bright
+set-window-option -g window-status-current-format ")#W:#P("
+
+set-window-option -g window-status-last-fg colour103
+set-window-option -g window-status-last-bg default
+
+set-option -g pane-border-fg colour235
+set-option -g pane-active-border-fg colour240
+
+set-option -g display-panes-active-colour colour33
+set-option -g display-panes-colour colour166
+
+set-window-option -g clock-mode-colour colour64
+
+set -g status-left-length 40
+set -g status-right-length 120
+
+set -g status-left "#[bg=colour240]#[fg=colour189] #S ✚  "
+set -g status-right "#[bg=colour240]#[fg=colour189]  %a, %b %d | %H:%M "
+

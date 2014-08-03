@@ -45,13 +45,26 @@ fi
 
 COMPILED_CONF="$TMUX_CONF_D/tmux.conf"
 SYMLINKED_CONF="$HOME/.tmux.conf"
+THEME=${1:-darkspectrum}
+THEME_ROOT="$TMUX_CONF_D/themes"
 
 if [ ! -f "$COMPILED_CONF" ]; then
   echo_step "Making a config"
+
+  if [ ! -d "$THEME_ROOT/$THEME" ]; then
+    echo_err
+    echo_hint "Theme $THEME does not exist. Available themes:"
+    echo_hint "$(ls- 1 $THEME_ROOT)"
+  fi
+
   > $COMPILED_CONF
+  cat "$TMUX_CONF_D/tmux.conf.Base" >> $COMPILED_CONF
+  echo "" >> $COMPILED_CONF
   cat "$TMUX_CONF_D/tmux.conf.$UNAME" >> $COMPILED_CONF
   echo "" >> $COMPILED_CONF
-  cat "$TMUX_CONF_D/tmux.conf.Base" >> $COMPILED_CONF
+  cat "$THEME_ROOT/$THEME/$THEME.Base" >> $COMPILED_CONF
+  echo "" >> $COMPILED_CONF
+  cat "$THEME_ROOT/$THEME/$THEME.$UNAME" >> $COMPILED_CONF
   echo_ok
 else
   echo "$COMPILED_CONF already exists. Skipping."

@@ -1,6 +1,16 @@
 # General
 set -g base-index 1
+set -g pane-base-index 1
+setw -g utf8 on
 set-option -g status-utf8 on
+set -g history-limit 9999999
+set -g default-terminal "screen-256color"
+set status-interval 1
+set-option -sg escape-time 0
+
+
+# Windows
+setw -g aggressive-resize on
 
 
 # Mouse
@@ -10,8 +20,10 @@ set-window-option -g mode-mouse on
 
 
 # Keys
-set-window-option -g mode-keys vi
+set-option -g mode-keys vi
+set-option -g status-keys vi
 
+unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
@@ -23,4 +35,9 @@ bind-key -r h select-pane -L
 bind-key -r j select-pane -D
 bind-key -r k select-pane -U
 bind-key -r l select-pane -R
+
+bind C-s choose-session
+
+bind -t vi-copy 'v' rectangle-toggle
+bind -t vi-copy 'y' copy-selection
 
