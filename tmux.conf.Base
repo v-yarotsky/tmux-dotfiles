@@ -1,10 +1,9 @@
 # General
 set -g base-index 1
 set -g pane-base-index 1
-setw -g utf8 on
-set-option -g status-utf8 on
 set -g history-limit 9999999
 set -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",*256col*:Tc"
 set -g status-interval 1
 set-option -sg escape-time 0
 
@@ -14,14 +13,13 @@ setw -g aggressive-resize on
 
 
 # Mouse
-set-option -g mouse-select-pane on
-set-option -g mouse-select-window on
-set-window-option -g mode-mouse on
+set-option -g mouse on
 
 
 # Keys
 set-option -g mode-keys vi
 set-option -g status-keys vi
+set-window-option -g xterm-keys on
 
 unbind C-b
 set-option -g prefix C-a
