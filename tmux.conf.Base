@@ -6,6 +6,7 @@ set -g default-terminal "screen-256color"
 set-option -ga terminal-overrides ",*256col*:Tc"
 set -g status-interval 1
 set-option -sg escape-time 0
+set-option -g renumber-windows on
 
 
 # Windows
@@ -37,7 +38,8 @@ bind-key -r k select-pane -U
 bind-key -r l select-pane -R
 
 bind C-s choose-session
+bind C-w choose-window
 
-bind -t vi-copy 'v' rectangle-toggle
-bind -t vi-copy 'y' copy-selection
+bind -Tcopy-mode-vi v send-keys -X rectangle-toggle
+bind -Tcopy-mode-vi y send-keys -X copy-selection
 
