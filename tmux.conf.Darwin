@@ -5,4 +5,4 @@ set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 # OS X Keys
 bind C-c run "tmux save-buffer - | pbcopy"
 bind C-v run "tmux set-buffer \"$(pbpaste)\"; tmux paste-buffer"
-
+bind C-f run "tmux new-window -n select_window 'tmux list-windows -F \"##W\" | grep -v 'select_window' | selecta | xargs tmux select-window -t'"
